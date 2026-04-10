@@ -52,6 +52,15 @@ public class Patient {
      *         range
      */
     public List<PatientRecord> getRecords(long startTime, long endTime) {
-        // TODO Implement and test this method
+        List<PatientRecord> out = new ArrayList<>();
+
+        for (var patientRecord : patientRecords) {
+            double timestamp  = patientRecord.getTimestamp();
+            if (timestamp >= startTime && timestamp <= endTime)
+                // no need for copying as all fields of PatientRecord is not modifiable from the outside
+                out.add(patientRecord);
+        }
+
+        return out;
     }
 }
