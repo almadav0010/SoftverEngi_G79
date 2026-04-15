@@ -1,9 +1,21 @@
 <mxfile host="app.diagrams.net">
   <diagram name="Page-1" id="empMyg9jxCM_DCe_GFSe">
-    <mxGraphModel dx="1030" dy="527" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="824" dy="422" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="7O-nZQa8XlKOu5A1Zk9c-6" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;DataStorage&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="160" width="240" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="7O-nZQa8XlKOu5A1Zk9c-7" parent="7O-nZQa8XlKOu5A1Zk9c-6" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="- patientMap: Map&amp;lt;int, Patient&amp;gt;" vertex="1">
+          <mxGeometry height="40" width="240" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="7O-nZQa8XlKOu5A1Zk9c-8" parent="7O-nZQa8XlKOu5A1Zk9c-6" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+          <mxGeometry height="8" width="240" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="7O-nZQa8XlKOu5A1Zk9c-9" parent="7O-nZQa8XlKOu5A1Zk9c-6" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ addPatientData(patientID, measurmentValue, recordType, timestamp)&lt;div&gt;+ getRecords(PatientID, startTime, endTime): List&amp;lt;PatientRecord&amp;gt;&lt;/div&gt;&lt;div&gt;+ getAllPatients():&amp;nbsp;List&amp;lt;Patient&amp;gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="82" width="240" y="78" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
