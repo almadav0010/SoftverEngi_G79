@@ -4,16 +4,32 @@ import java.util.Random; // deleted extra whitespace
 
 import com.cardio_generator.outputs.OutputStrategy;
 
+/**
+ * Used to create random test alert solutions, that can either get resolved or not, used for testing
+ */
+
+
 public class AlertGenerator implements PatientDataGenerator {
 
     public static final Random randomGenerator = new Random();
     private boolean[] alertStates; // false = resolved, true = pressed
     // made camelCase
 
+
+    /**
+     * Constructor
+     * @param patientCount Number of patients we have as an integer
+     */
     public AlertGenerator(int patientCount) {
         alertStates = new boolean[patientCount + 1];
     }
 
+    /**
+     * Simulates percentage chance of resolving issues if they are present
+     * @param patientID which patient do we simulate for
+     * @param outputStrategy interface, based on how it outputs the generated data
+     * @throws Error when something unexpected happens and we cannot generate a solution/fail
+     */
     @Override
     public void generate(int patientId, OutputStrategy outputStrategy) {
         try {
@@ -24,7 +40,7 @@ public class AlertGenerator implements PatientDataGenerator {
                     outputStrategy.output(patientId, System.currentTimeMillis(),
                             "Alert", "resolved");// broke line
                 }
-            } else { // cahged Lambda into lambda since its a var
+            } else { // changed Lambda into lambda since its a var
                 double lambda = 0.1; // Average rate (alerts per period),
                         //adjust based on desired frequency
                 double p = -Math.expm1(-lambda); // Probability of at least one alert in the period
