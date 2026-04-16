@@ -7,6 +7,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.concurrent.ConcurrentHashMap;
 
+/** Provides dependency firewall for writing to local files in the filesystem. **/
 public class FileOutputStrategy implements OutputStrategy {
 
     private String baseDirectory; // made camelCase everywhere since it is a variable
@@ -14,11 +15,26 @@ public class FileOutputStrategy implements OutputStrategy {
     public final ConcurrentHashMap<String, String> FILE_MAP = new ConcurrentHashMap<>(); 
             // made all capital since it is final
 
+    /**
+     * Upon initialization a base directory is chosen which will contain all output files.
+     * @param baseDirectory a valid path to a directory in the local file system. If there are
+     *                      nonexistent parent directories they are created dynamically.
+     * @implNote if the baseDirectory is invalid FileOutputStrategy won't fail until output(...) is
+     *           called!
+     */
     public FileOutputStrategy(String baseDirectory) {
 
         this.baseDirectory = baseDirectory;
     }
 
+    /**
+     * Appends 1 line of formatted data of a patient to appropriate file. If it does not exist, the
+     * appropriate file is created, and data is appended to it.
+     * @param patientId assumed to be valid patient ID
+     * @param timestamp timestamp of the data recorded
+     * @param label used for creating the file name [label].txt and for explicitly marking data entry as well
+     * @param data must not contain "\n" as it breaks the file formatting
+     */
     @Override
     public void output(int patientId, long timestamp, String label, String data) {
         try {
