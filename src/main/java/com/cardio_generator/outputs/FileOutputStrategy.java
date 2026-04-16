@@ -15,6 +15,13 @@ public class FileOutputStrategy implements OutputStrategy {
     public final ConcurrentHashMap<String, String> FILE_MAP = new ConcurrentHashMap<>(); 
             // made all capital since it is final
 
+    /**
+     * Upon initialization a base directory is chosen which will contain all output files.
+     * @param baseDirectory a valid path to a directory in the local file system. If there are
+     *                      nonexistent parent directories they are created dynamically.
+     * @implNote if the baseDirectory is invalid FileOutputStrategy won't fail until output(...) is
+     *           called!
+     */
     public FileOutputStrategy(String baseDirectory) {
 
         this.baseDirectory = baseDirectory;
