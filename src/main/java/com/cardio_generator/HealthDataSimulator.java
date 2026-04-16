@@ -31,7 +31,27 @@ public class HealthDataSimulator {
     private static ScheduledExecutorService scheduler;
     private static OutputStrategy outputStrategy = new ConsoleOutputStrategy(); // Default output strategy
     private static final Random random = new Random();
-
+    /**
+     * Entry point to the application simulating health data on multiple threads.
+     * Supports the following CLI options:
+     * @param args <p>
+     *             The following parameters separated with spaces, parameters with a value are
+     *             followed by the value separated by a whitespace. The following parameters are
+     *             accepted:
+     *             </p>
+     *             <ul>
+     *             <li>-h shows the help manual</li>
+     *             <li>--patient-count followed by an integer sets the # of patients simulated.
+     *                  negative value is allowed, but discouraged</li>
+     *             <li>--output sets output format: <ul>
+     *                 <li>console - straight to the console</li>
+     *                 <li>file:[output path] - writes into a file specified in the output path</li>
+     *                 <li>websocket:[port] - sends output to the port specified</li>
+     *                 <li>tcp:[] - send output to the port specified via TCP</li>
+     *             </ul></li>
+     *             </ul>
+     * @throws IOException
+     */
     public static void main(String[] args) throws IOException {
 
         parseArguments(args);
@@ -44,6 +64,26 @@ public class HealthDataSimulator {
         scheduleTasksForPatients(patientIds);
     }
 
+    /**
+     * Parses CLI arguments for the main() method
+     * @param args <p>
+     *             The following parameters separated with spaces, parameters with a value are
+     *             followed by the value separated by a whitespace. The following parameters are
+     *             accepted:
+     *             </p>
+     *             <ul>
+     *             <li>-h shows the help manual</li>
+     *             <li>--patient-count followed by an integer sets the # of patients simulated.
+     *                  negative value is allowed, but discouraged</li>
+     *             <li>--output sets output format: <ul>
+     *                 <li>console - straight to the console</li>
+     *                 <li>file:[output path] - writes into a file specified in the output path</li>
+     *                 <li>websocket:[port] - sends output to the port specified</li>
+     *                 <li>tcp:[] - send output to the port specified via TCP</li>
+     *             </ul></li>
+     *             </ul>
+     * @throws IOException
+     */
     private static void parseArguments(String[] args) throws IOException {
         for (int i = 0; i < args.length; i++) {
             switch (args[i]) {
@@ -105,6 +145,7 @@ public class HealthDataSimulator {
         }
     }
 
+    /** Prints static help menu to the console**/
     private static void printHelp() {
         System.out.println("Usage: java HealthDataSimulator [options]");
         System.out.println("Options:");
@@ -130,6 +171,11 @@ public class HealthDataSimulator {
         return patientIds;
     }
 
+    /**
+     * Sets up various data generators (EEG, blood pressure, ...) and schedule them to yield data at
+     * appropriate time intervals.
+     * @param patientIds existing patient IDs are recommended, but not enforced by code
+     */
     private static void scheduleTasksForPatients(List<Integer> patientIds) {
         ECGDataGenerator ecgDataGenerator = new ECGDataGenerator(patientCount);
         BloodSaturationDataGenerator bloodSaturationDataGenerator = new BloodSaturationDataGenerator(patientCount);
