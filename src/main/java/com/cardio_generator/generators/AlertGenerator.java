@@ -25,7 +25,7 @@ public class AlertGenerator implements PatientDataGenerator {
   /**
    * Simulates percentage chance of resolving issues if they are present
    *
-   * @param patientID which patient do we simulate for
+   * @param patientId which patient do we simulate for
    * @param outputStrategy interface, based on how it outputs the generated data
    * @throws Error when something unexpected happens and we cannot generate a solution/fail
    */
