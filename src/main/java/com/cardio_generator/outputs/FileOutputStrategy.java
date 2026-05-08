@@ -12,7 +12,8 @@ public class FileOutputStrategy implements OutputStrategy {
 
   private final String baseDirectory; // made camelCase everywhere since it is a variable
 
-  public final ConcurrentHashMap<String, String> FILE_MAP = new ConcurrentHashMap<>();
+  // not a static final field -> camelCase
+  public final ConcurrentHashMap<String, String> fileMap = new ConcurrentHashMap<>();
 
   // made all capital since it is final
 
@@ -50,7 +51,7 @@ public class FileOutputStrategy implements OutputStrategy {
     }
     // Set the filePath variable // made into camelCase since it is a local variable
     String filePath =
-        FILE_MAP.computeIfAbsent(
+        fileMap.computeIfAbsent(
             label, k -> Paths.get(baseDirectory, label + ".txt").toString()); // broke line
 
     // Write the data to the file
