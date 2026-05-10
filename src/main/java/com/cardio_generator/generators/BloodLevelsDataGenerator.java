@@ -1,5 +1,6 @@
 package com.cardio_generator.generators;
 
+import com.Label;
 import com.cardio_generator.outputs.OutputStrategy;
 import java.util.Random;
 
@@ -36,11 +37,11 @@ public class BloodLevelsDataGenerator implements PatientDataGenerator {
 
       // Output the generated values
       outputStrategy.output(
-          patientId, System.currentTimeMillis(), "Cholesterol", Double.toString(cholesterol));
+          patientId, System.currentTimeMillis(), Label.Cholesterol.name(), Double.toString(cholesterol));
       outputStrategy.output(
-          patientId, System.currentTimeMillis(), "WhiteBloodCells", Double.toString(whiteCells));
+          patientId, System.currentTimeMillis(), Label.WhiteBloodCells.name(), Double.toString(whiteCells));
       outputStrategy.output(
-          patientId, System.currentTimeMillis(), "RedBloodCells", Double.toString(redCells));
+          patientId, System.currentTimeMillis(), Label.RedBloodCells.name(), Double.toString(redCells));
     } catch (Exception e) {
       System.err.println(
           "An error occurred while generating blood levels data for patient " + patientId);
