@@ -12,7 +12,7 @@ class DataStorageTest {
 
     @Test
     void testAddAndGetRecords() {
-        DataStorage storage = new DataStorage(); // removed reader from the overload, the constructor doesnt need anything
+        DataStorage storage = DataStorage.getInstance(); // removed reader from the overload, the constructor doesnt need anything
         storage.addPatientData(1, 100.0, "WhiteBloodCells", 1714376789050L);
         storage.addPatientData(1, 200.0, "WhiteBloodCells", 1714376789051L);
 
