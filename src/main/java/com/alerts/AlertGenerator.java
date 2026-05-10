@@ -29,7 +29,14 @@ public class AlertGenerator {
    * @param patient the patient data to evaluate for alert conditions
    */
   public void evaluateData(Patient patient) {
-    // Implementation goes here
+    // get all records -> minmax of long as time windows
+    var allRecords = patient.getRecords(Long.MIN_VALUE, Long.MAX_VALUE);
+
+    // 1. blood pressure data alerts
+
+    // 2. blood saturation data alerts
+    // 3. Combined Alert: Hypotensive Hypoxemia Alert
+    // 4. ECG Data Alerts
   }
 
   /**
