@@ -1,11 +1,11 @@
 package com.alerts.factories;
 
 import com.alerts.Alert;
-import com.alerts.types.ECGAlert;
+import com.alerts.types.TriggeredAlert;
 
-public class ECGAlertFactory extends AlertFactory {
+public class TriggeredAlertFactory extends AlertFactory {
   @Override
   public Alert createAlert(String patientId, String condition, long timestamp) {
-    return new ECGAlert();
+    return new TriggeredAlert();
   }
 }
