@@ -36,6 +36,18 @@ public class HealthDataSimulator {
       new ConsoleOutputStrategy(); // Default output strategy
   private static final Random random = new Random();
 
+  // //////////////////////// //
+  // singleton implementation //
+  // //////////////////////// //
+  private static HealthDataSimulator instance = null;
+  public static HealthDataSimulator getInstance() {
+    if (instance == null) {
+      instance = new HealthDataSimulator();
+    }
+    return instance;
+  }
+  private HealthDataSimulator() {}
+
   /**
    * Entry point to the application simulating health data on multiple threads. Supports the
    * following CLI options:
