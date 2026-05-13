@@ -5,11 +5,7 @@ import com.data_management.Patient;
 import java.util.Optional;
 
 public interface AlertStrategy {
-  /**
-   * An AlertStrategy must keep track how far into time a patient's measurements had
-   * been processed, this method enforces it.
-   */
-  long lastProcessedTimeStamp();
+
   /**
    * Checks if a specific alert type's conditions are met and format it into an
    * {Alert} if so.
