@@ -1,5 +1,6 @@
 package com.cardio_generator.generators;
 
+import com.Label;
 import com.cardio_generator.outputs.OutputStrategy;
 import java.util.Random;
 
@@ -42,7 +43,7 @@ public class BloodSaturationDataGenerator implements PatientDataGenerator {
       outputStrategy.output(
           patientId,
           System.currentTimeMillis(),
-          "Saturation",
+          Label.Saturation.name(),
           Double.toString(newSaturationValue) + "%");
     } catch (Exception e) {
       System.err.println(

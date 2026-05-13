@@ -1,5 +1,6 @@
 package com.cardio_generator.generators;
 
+import com.Label;
 import com.cardio_generator.outputs.OutputStrategy;
 import java.util.Random; // deleted extra whitespace
 
@@ -49,7 +50,7 @@ public class AlertGenerator implements PatientDataGenerator {
           alertStates[patientId] = true;
           // Output the alert
           outputStrategy.output(
-              patientId, System.currentTimeMillis(), "Alert", "triggered"); // broke line
+              patientId, System.currentTimeMillis(), Label.Alert.name(), "triggered"); // broke line
         }
       }
     } catch (Exception e) {

@@ -1,5 +1,6 @@
 package com.cardio_generator.generators;
 
+import com.Label;
 import com.cardio_generator.outputs.OutputStrategy;
 import java.util.Random;
 
@@ -36,12 +37,12 @@ public class BloodPressureDataGenerator implements PatientDataGenerator {
       outputStrategy.output(
           patientId,
           System.currentTimeMillis(),
-          "SystolicPressure",
+          Label.SystolicPressure.name(),
           Double.toString(newSystolicValue));
       outputStrategy.output(
           patientId,
           System.currentTimeMillis(),
-          "DiastolicPressure",
+          Label.DiastolicPressure.name(),
           Double.toString(newDiastolicValue));
     } catch (Exception e) {
       System.err.println(

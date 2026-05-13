@@ -2,6 +2,7 @@ package com.data_management;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
 
 /**
  * Represents a patient and manages their medical records. This class stores patient-specific data,
@@ -21,6 +22,9 @@ public class Patient {
     this.patientRecords = new ArrayList<>();
   }
 
+  /** Getter for patientId */
+  public int getPatientId() {return patientId;}
+
   /**
    * Adds a new record to this patient's list of medical records. The record is created with the
    * specified measurement value, record type, and timestamp.
@@ -32,7 +36,14 @@ public class Patient {
   public void addRecord(double measurementValue, String recordType, long timestamp) {
     PatientRecord record =
         new PatientRecord(this.patientId, measurementValue, recordType, timestamp);
-    this.patientRecords.add(record);
+
+    // insert to the appropriate index so chronological order is kept.
+    // HEURISTICS: assumes new record is fresher than any recorded so start the search from behind.
+    int insertIndex = this.patientRecords.size();
+    while (record.getTimestamp() < this.patientRecords.get(insertIndex-1).getTimestamp()) {
+      insertIndex--;
+    }
+    this.patientRecords.add(insertIndex, record);
   }
 
   /**
@@ -54,5 +65,34 @@ public class Patient {
     }
 
     return out;
+  }
+
+  /**
+   * Retrives the last N records of a patient.
+   * @param lastN amount in chronological order
+   * @return the last N amount of patient records. Oldest record is first. If
+   *         there are less than N patient records then less than N are returned
+   *
+   * @implNote this method assumes that patientRecords are sorted timewise. which is guaranteed
+   *           by the implementation of {@link #addRecord(double, String, long)}
+   */
+  public List<PatientRecord> getRecords(int lastN) {
+    var out = new ArrayList<PatientRecord>();
+    int size = this.patientRecords.size();
+    for (int i = Math.max(0, size - lastN); i < size; i++) {
+      out.add(this.patientRecords.get(i));
+    }
+    return out;
+  }
+
+  /**
+   * Retrivies all records withing the last X miliseconds
+   * @param lastMiliseconds time window in miliseconds
+   * @return all records that were timestamped within the last X miliseconds
+   */
+  public List<PatientRecord> getRecords(long lastMiliseconds) {
+    long now = java.time.Instant.now().toEpochMilli();
+    return getRecords(now - lastMiliseconds, now);
+
   }
 }

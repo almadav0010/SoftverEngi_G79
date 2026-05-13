@@ -1,5 +1,6 @@
 package com.data_management;
 
+import com.Label;
 import com.data_management.inputs.DataListener;
 
 import java.io.IOException;
@@ -32,16 +33,18 @@ public class DataSourceAdapter {
     for (String[] entry : semiRawData) {
       int patientID;
       long timestamp;
-      String label;   // aka the record type
+      Label label;   // aka the record type
       double data;    // aka the measurement value
 
       patientID = Integer.parseInt(entry[0]);
       timestamp = Long.parseLong(entry[1]);
-      label = entry[2];
+      label = Label.valueOf(entry[2]);
       data = RawParser.numeric(entry[3]);   // handles special formats like percentages
 
+      // alerts logs are not records therefore skipped
+      if (label == Label.Alert) {continue;}
       // gives parsed data to the storage in a way it understands (doing the adapter thing)
-      dataStorage.addPatientData(patientID, data, label, timestamp);
+      dataStorage.addPatientData(patientID, data, label.name(), timestamp);
     }
   }
 }

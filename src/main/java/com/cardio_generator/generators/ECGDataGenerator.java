@@ -1,5 +1,6 @@
 package com.cardio_generator.generators;
 
+import com.Label;
 import com.cardio_generator.outputs.OutputStrategy;
 import java.util.Random;
 
@@ -22,7 +23,7 @@ public class ECGDataGenerator implements PatientDataGenerator {
     try {
       double ecgValue = simulateEcgWaveform(patientId, lastEcgValues[patientId]);
       outputStrategy.output(
-          patientId, System.currentTimeMillis(), "ECG", Double.toString(ecgValue));
+          patientId, System.currentTimeMillis(), Label.ECG.name(), Double.toString(ecgValue));
       lastEcgValues[patientId] = ecgValue;
     } catch (Exception e) {
       System.err.println("An error occurred while generating ECG data for patient " + patientId);

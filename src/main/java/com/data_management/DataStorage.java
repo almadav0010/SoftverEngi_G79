@@ -7,16 +7,29 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Manages storage and retrieval of patient data within a healthcare monitoring system. This class
- * serves as a repository for all patient records, organized by patient IDs.
+ * Manages storage and retrieval of patient data within a healthcare monitoring system. This
+ * globally accessible class serves as a repository for all patient records, organized by
+ * patient IDs.
  */
 public class DataStorage {
   private final Map<Integer, Patient>
       patientMap; // Stores patient objects indexed by their unique patient ID.
+  private static DataStorage instance = null; // singleton instance
 
   /** Constructs a new instance of DataStorage, initializing the underlying storage structure. */
-  public DataStorage() {
+  private DataStorage() {
     this.patientMap = new HashMap<>();
+  }
+
+  /**
+   * Provides instance to the global data storage.
+   * @return provides DataStorage instance, or creates if non-existent
+   */
+  public static DataStorage getInstance() {
+    if (DataStorage.instance == null) {
+      DataStorage.instance = new DataStorage();
+    }
+    return DataStorage.instance;
   }
 
   /**
