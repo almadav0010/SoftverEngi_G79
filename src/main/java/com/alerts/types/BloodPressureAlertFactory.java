@@ -1,7 +1,6 @@
-package com.alerts.factories;
+package com.alerts.types;
 
 import com.alerts.Alert;
-import com.alerts.types.BloodPressureAlert;
 
 public class BloodPressureAlertFactory extends AlertFactory {
   @Override
