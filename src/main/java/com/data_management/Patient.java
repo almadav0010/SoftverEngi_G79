@@ -1,8 +1,8 @@
 package com.data_management;
 
+import com.Label;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Timer;
 
 /**
  * Represents a patient and manages their medical records. This class stores patient-specific data,
@@ -33,7 +33,7 @@ public class Patient {
    * @param recordType the type of record, e.g., "HeartRate", "BloodPressure"
    * @param timestamp the time at which the measurement was taken, in milliseconds since UNIX epoch
    */
-  public void addRecord(double measurementValue, String recordType, long timestamp) {
+  public void addRecord(double measurementValue, Label recordType, long timestamp) {
     PatientRecord record =
         new PatientRecord(this.patientId, measurementValue, recordType, timestamp);
 
@@ -74,7 +74,7 @@ public class Patient {
    *         there are less than N patient records then less than N are returned
    *
    * @implNote this method assumes that patientRecords are sorted timewise. which is guaranteed
-   *           by the implementation of {@link #addRecord(double, String, long)}
+   *           by the implementation of {@link #addRecord(double, Label, long)}
    */
   public List<PatientRecord> getRecords(int lastN) {
     var out = new ArrayList<PatientRecord>();

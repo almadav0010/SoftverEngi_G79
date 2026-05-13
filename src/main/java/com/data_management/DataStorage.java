@@ -1,5 +1,6 @@
 package com.data_management;
 
+import com.Label;
 import com.alerts.AlertGenerator;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -44,7 +45,7 @@ public class DataStorage {
    *     epoch
    */
   public void addPatientData(
-      int patientId, double measurementValue, String recordType, long timestamp) {
+      int patientId, double measurementValue, Label recordType, long timestamp) {
     Patient patient = patientMap.get(patientId);
     if (patient == null) {
       patient = new Patient(patientId);

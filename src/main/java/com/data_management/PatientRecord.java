@@ -1,5 +1,7 @@
 package com.data_management;
 
+import com.Label;
+
 /**
  * Represents a single record of patient data at a specific point in time. This class stores all
  * necessary details for a single observation or measurement taken from a patient, including the
@@ -8,7 +10,7 @@ package com.data_management;
  */
 public class PatientRecord {
   private final int patientId;
-  private final String recordType; // Example: ECG, blood pressure, etc.
+  private final Label recordType; // Example: ECG, blood pressure, etc.
   private final double measurementValue; // Example: heart rate
   private final long timestamp;
 
@@ -20,7 +22,7 @@ public class PatientRecord {
    * @param recordType the type of measurement (e.g., "ECG", "Blood Pressure")
    * @param timestamp the time at which the measurement was recorded, in milliseconds since epoch
    */
-  public PatientRecord(int patientId, double measurementValue, String recordType, long timestamp) {
+  public PatientRecord(int patientId, double measurementValue, Label recordType, long timestamp) {
     this.patientId = patientId;
     this.measurementValue = measurementValue;
     this.recordType = recordType;
@@ -59,7 +61,7 @@ public class PatientRecord {
    *
    * @return the record type
    */
-  public String getRecordType() {
+  public Label getRecordType() {
     return recordType;
   }
 }
