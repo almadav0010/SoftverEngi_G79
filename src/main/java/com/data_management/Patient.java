@@ -93,6 +93,26 @@ public class Patient {
   public List<PatientRecord> getRecords(long lastMiliseconds) {
     long now = java.time.Instant.now().toEpochMilli();
     return getRecords(now - lastMiliseconds, now);
+  }
 
+  /**
+   * Retrieves a list of PatientRecord objects for this patient that fall within a specified time
+   * range. The method filters records based on the start and end times provided.
+   *
+   * @param startTime the start of the time range, in milliseconds since UNIX epoch
+   * @return a list of PatientRecord objects that fall within the specified time range
+   */
+  public List<PatientRecord> getRecordsFrom(long startTime) {
+    List<PatientRecord> out = new ArrayList<>();
+
+    for (var patientRecord : patientRecords) {
+      double timestamp = patientRecord.getTimestamp();
+      if (timestamp >= startTime) {
+        // no need for copying as all fields of PatientRecord is not modifiable from the outside
+        out.add(patientRecord);
+        }
+    }
+
+    return out;
   }
 }
