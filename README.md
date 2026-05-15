@@ -2,6 +2,16 @@
 
 The Cardio Data Simulator is a Java-based application designed to simulate real-time cardiovascular data for multiple patients. This tool is particularly useful for educational purposes, enabling students to interact with real-time data streams of ECG, blood pressure, blood saturation, and other cardiovascular signals.
 
+## Temporal entry for developers
+See blood pressure as example for alert system implementing
+- blood saturation data alerts
+- ECG data alerts
+- combined alerts
+
+missing:
+- all of unit testing
+- TCP business of part 5
+
 ## Features
 
 - Simulate real-time ECG, blood pressure, blood saturation, and blood levels data.
