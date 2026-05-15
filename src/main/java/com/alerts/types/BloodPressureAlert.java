@@ -7,7 +7,7 @@ public class BloodPressureAlert implements Alert {
   private final String condition;
   private final long timestamp;
 
-  public BloodPressureAlert(String patientId, String condition, long timestamp) {
+  protected BloodPressureAlert(String patientId, String condition, long timestamp) {
     this.patientId = patientId;
     this.condition = condition;
     this.timestamp = timestamp;
