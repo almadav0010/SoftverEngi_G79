@@ -27,9 +27,8 @@ public class ECGDataGenerator implements PatientDataGenerator {
       lastEcgValues[patientId] = ecgValue;
     } catch (Exception e) {
       System.err.println("An error occurred while generating ECG data for patient " + patientId);
-      e
-          .printStackTrace(); // This will print the stack trace to help identify where the error
-                              // occurred.
+      e.printStackTrace(); // This will print the stack trace to help identify where the error
+      // occurred.
     }
   }
 

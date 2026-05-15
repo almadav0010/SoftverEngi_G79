@@ -5,9 +5,7 @@ import com.data_management.DataStorage;
 import java.io.IOException;
 import java.util.List;
 
-/**
- * Handles reading data from a TCP connection generated as output by this software.
- */
+/** Handles reading data from a TCP connection generated as output by this software. */
 public class TCPDataListener implements DataListener {
 
   @Override

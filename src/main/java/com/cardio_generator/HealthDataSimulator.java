@@ -23,11 +23,11 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Serves as the entry point to the application.
- * Simulates various medical data that would be measured during close monitoring
- * of a patient in regular intervals. (e.g. EEGC, hearth rate, blood pressure)
- * The main method is evoked when running from CLI that is capable of parsing
- * the main parameters of health data simulation.**/
+ * Serves as the entry point to the application. Simulates various medical data that would be
+ * measured during close monitoring of a patient in regular intervals. (e.g. EEGC, hearth rate,
+ * blood pressure) The main method is evoked when running from CLI that is capable of parsing the
+ * main parameters of health data simulation.*
+ */
 public class HealthDataSimulator {
 
   private static int patientCount = 50; // Default number of patients
@@ -40,12 +40,14 @@ public class HealthDataSimulator {
   // singleton implementation //
   // //////////////////////// //
   private static HealthDataSimulator instance = null;
+
   public static HealthDataSimulator getInstance() {
     if (instance == null) {
       instance = new HealthDataSimulator();
     }
     return instance;
   }
+
   private HealthDataSimulator() {}
 
   /**

@@ -9,8 +9,8 @@ import java.util.Map;
 
 /**
  * Manages storage and retrieval of patient data within a healthcare monitoring system. This
- * globally accessible class serves as a repository for all patient records, organized by
- * patient IDs.
+ * globally accessible class serves as a repository for all patient records, organized by patient
+ * IDs.
  */
 public class DataStorage {
   private final Map<Integer, Patient>
@@ -24,6 +24,7 @@ public class DataStorage {
 
   /**
    * Provides instance to the global data storage.
+   *
    * @return provides DataStorage instance, or creates if non-existent
    */
   public static DataStorage getInstance() {

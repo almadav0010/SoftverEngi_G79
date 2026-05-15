@@ -1,16 +1,11 @@
 package com.data_management.inputs;
 
-import com.data_management.DataSourceAdapter;
-import com.data_management.DataStorage;
-import com.data_management.PatientRecord;
 
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Handles reading data from a folder generated as output by this software.
@@ -22,7 +17,7 @@ public class FileDataListener implements DataListener {
   public FileDataListener(Path baseFolder) {
     if ( Files.notExists(baseFolder)) {
       throw new IllegalArgumentException(
-          "Given folder path does not exists:( \""+ baseFolder.toString() + "\""
+          "Given folder path does not exists:( \""+ baseFolder + "\""
       );
     }
     this.baseFolder = baseFolder;

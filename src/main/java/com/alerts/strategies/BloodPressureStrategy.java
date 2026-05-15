@@ -14,11 +14,11 @@ import java.util.Optional;
  */
 public class BloodPressureStrategy implements AlertStrategy {
 
-  private Map<Integer, Integer> consecutiveDropsDia = Map.of();
-  private Map<Integer, Double> lastBloodPressureDia = Map.of();
+  private final Map<Integer, Integer> consecutiveDropsDia = Map.of();
+  private final Map<Integer, Double> lastBloodPressureDia = Map.of();
 
-  private Map<Integer, Integer> consecutiveDropsSys = Map.of();
-  private Map<Integer, Double> lastBloodPressureSys = Map.of();
+  private final Map<Integer, Integer> consecutiveDropsSys = Map.of();
+  private final Map<Integer, Double> lastBloodPressureSys = Map.of();
 
   /**
    * Check blood pressure alert conditions for a new patient record assuming the records are passed

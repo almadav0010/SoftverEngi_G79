@@ -23,7 +23,9 @@ public class Patient {
   }
 
   /** Getter for patientId */
-  public int getPatientId() {return patientId;}
+  public int getPatientId() {
+    return patientId;
+  }
 
   /**
    * Adds a new record to this patient's list of medical records. The record is created with the
@@ -40,7 +42,7 @@ public class Patient {
     // insert to the appropriate index so chronological order is kept.
     // HEURISTICS: assumes new record is fresher than any recorded so start the search from behind.
     int insertIndex = this.patientRecords.size();
-    while (record.getTimestamp() < this.patientRecords.get(insertIndex-1).getTimestamp()) {
+    while (record.getTimestamp() < this.patientRecords.get(insertIndex - 1).getTimestamp()) {
       insertIndex--;
     }
     this.patientRecords.add(insertIndex, record);
@@ -69,12 +71,12 @@ public class Patient {
 
   /**
    * Retrives the last N records of a patient.
-   * @param lastN amount in chronological order
-   * @return the last N amount of patient records. Oldest record is first. If
-   *         there are less than N patient records then less than N are returned
    *
-   * @implNote this method assumes that patientRecords are sorted timewise. which is guaranteed
-   *           by the implementation of {@link #addRecord(double, Label, long)}
+   * @param lastN amount in chronological order
+   * @return the last N amount of patient records. Oldest record is first. If there are less than N
+   *     patient records then less than N are returned
+   * @implNote this method assumes that patientRecords are sorted timewise. which is guaranteed by
+   *     the implementation of {@link #addRecord(double, Label, long)}
    */
   public List<PatientRecord> getRecords(int lastN) {
     var out = new ArrayList<PatientRecord>();
@@ -87,6 +89,7 @@ public class Patient {
 
   /**
    * Retrivies all records withing the last X miliseconds
+   *
    * @param lastMiliseconds time window in miliseconds
    * @return all records that were timestamped within the last X miliseconds
    */
@@ -110,7 +113,7 @@ public class Patient {
       if (timestamp >= startTime) {
         // no need for copying as all fields of PatientRecord is not modifiable from the outside
         out.add(patientRecord);
-        }
+      }
     }
 
     return out;

@@ -1,7 +1,12 @@
 package com.alerts;
 
+import com.Label;
+import com.alerts.strategies.BloodPressureStrategy;
+import com.alerts.types.BloodPressureAlertFactory;
+import com.cardio_generator.outputs.ConsoleOutputStrategy;
 import com.data_management.DataStorage;
 import com.data_management.Patient;
+import java.util.Optional;
 
 /**
  * The {@code AlertGenerator} class is responsible for monitoring patient data and generating alerts
@@ -10,6 +15,7 @@ import com.data_management.Patient;
  */
 public class AlertGenerator {
   private final DataStorage dataStorage;
+  private final BloodPressureStrategy stratBloodPressure = new BloodPressureStrategy();
 
   /**
    * Constructs an {@code AlertGenerator} with a specified {@code DataStorage}. The {@code
@@ -32,11 +38,21 @@ public class AlertGenerator {
     // get all records -> minmax of long as time windows
     var allRecords = patient.getRecords(Long.MIN_VALUE, Long.MAX_VALUE);
 
-    // 1. blood pressure data alerts
+    Optional<String> result;
+    for (var record : allRecords) {
+      // 1. blood pressure data alerts
+      result = stratBloodPressure.checkAlert(record);
+      if (result.isPresent()) {
+        triggerAlert(
+            new BloodPressureAlertFactory()
+                .createAlert(
+                    String.valueOf(record.getPatientId()), result.get(), record.getTimestamp()));
+      }
 
-    // 2. blood saturation data alerts
-    // 3. Combined Alert: Hypotensive Hypoxemia Alert
-    // 4. ECG Data Alerts
+      // 2. blood saturation data alerts
+      // 3. Combined Alert: Hypotensive Hypoxemia Alert
+      // 4. ECG Data Alerts
+    }
   }
 
   /**
@@ -48,5 +64,11 @@ public class AlertGenerator {
    */
   private void triggerAlert(Alert alert) {
     // Implementation might involve logging the alert or notifying staff
+    new ConsoleOutputStrategy()
+        .output(
+            Integer.valueOf(alert.getPatientId()),
+            alert.getTimestamp(),
+            Label.Alert.name(),
+            alert.getCondition());
   }
 }

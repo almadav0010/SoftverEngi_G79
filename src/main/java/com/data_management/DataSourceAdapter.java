@@ -6,9 +6,7 @@ import com.data_management.inputs.DataListener;
 import java.io.IOException;
 import java.util.List;
 
-/**
- * Puts input data into data storage.
- */
+/** Puts input data into data storage. */
 public class DataSourceAdapter {
   private final DataListener dataListener;
 
@@ -18,6 +16,7 @@ public class DataSourceAdapter {
 
   /**
    * Reads from specified data listener and adapts it to be placed in the data storage.
+   *
    * @param dataStorage destination of the read data
    * @throws IOException when there is a problem with reading input (depends on the DataListener)
    */
@@ -33,18 +32,20 @@ public class DataSourceAdapter {
     for (String[] entry : semiRawData) {
       int patientID;
       long timestamp;
-      Label label;   // aka the record type
-      double data;    // aka the measurement value
+      Label label; // aka the record type
+      double data; // aka the measurement value
 
       patientID = Integer.parseInt(entry[0]);
       timestamp = Long.parseLong(entry[1]);
       label = Label.valueOf(entry[2]);
-      data = RawParser.numeric(entry[3]);   // handles special formats like percentages
+      data = RawParser.numeric(entry[3]); // handles special formats like percentages
 
       // alerts logs are not records therefore skipped
-      if (label == Label.Alert) {continue;}
+      if (label == Label.Alert) {
+        continue;
+      }
       // gives parsed data to the storage in a way it understands (doing the adapter thing)
-      dataStorage.addPatientData(patientID, data, label.name(), timestamp);
+      dataStorage.addPatientData(patientID, data, label, timestamp);
     }
   }
 }
