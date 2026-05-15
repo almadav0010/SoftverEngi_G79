@@ -2,7 +2,6 @@ package com.involuntaryminimalism.alerts.strategies;
 
 import com.involuntaryminimalism.Label;
 import com.involuntaryminimalism.data_management.PatientRecord;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;

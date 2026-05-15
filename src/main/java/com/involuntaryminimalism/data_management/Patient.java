@@ -42,7 +42,8 @@ public class Patient {
     // insert to the appropriate index so chronological order is kept.
     // HEURISTICS: assumes new record is fresher than any recorded so start the search from behind.
     int insertIndex = this.patientRecords.size();
-    while (insertIndex > 0 && record.getTimestamp() < this.patientRecords.get(insertIndex - 1).getTimestamp()) {
+    while (insertIndex > 0
+        && record.getTimestamp() < this.patientRecords.get(insertIndex - 1).getTimestamp()) {
       insertIndex--;
     }
     this.patientRecords.add(insertIndex, record);
@@ -68,5 +69,4 @@ public class Patient {
 
     return out;
   }
-
 }

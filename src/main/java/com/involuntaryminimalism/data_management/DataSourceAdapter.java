@@ -2,7 +2,6 @@ package com.involuntaryminimalism.data_management;
 
 import com.involuntaryminimalism.Label;
 import com.involuntaryminimalism.data_management.inputs.DataListener;
-
 import java.io.IOException;
 import java.util.List;
 

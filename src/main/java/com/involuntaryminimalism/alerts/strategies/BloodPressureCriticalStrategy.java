@@ -2,7 +2,6 @@ package com.involuntaryminimalism.alerts.strategies;
 
 import com.involuntaryminimalism.Label;
 import com.involuntaryminimalism.data_management.PatientRecord;
-
 import java.util.Optional;
 
 /**
@@ -13,7 +12,6 @@ import java.util.Optional;
  * blood pressure exceeds 120 mmHg or drops below 60 mmHg.
  */
 public class BloodPressureCriticalStrategy implements AlertStrategy {
-
 
   /**
    * Check blood pressure alert conditions for a new patient record assuming the records are passed
@@ -39,16 +37,13 @@ public class BloodPressureCriticalStrategy implements AlertStrategy {
     int THRESHOLD_AMOUNT = 3;
 
     // CRITICAL THRESHOLD ALERT
-    if (recordType == Label.SystolicPressure &&
-       (bloodPressure > 180 || bloodPressure < 90)) {
-        return Optional.of("Systolic blood pressure is in critical range: " + bloodPressure);
-      }
-    if (recordType == Label.DiastolicPressure &&
-        (bloodPressure > 120 || bloodPressure < 60)) {
-        return Optional.of("Diastolic blood pressure is in critical range: " + bloodPressure);
-      }
+    if (recordType == Label.SystolicPressure && (bloodPressure > 180 || bloodPressure < 90)) {
+      return Optional.of("Systolic blood pressure is in critical range: " + bloodPressure);
+    }
+    if (recordType == Label.DiastolicPressure && (bloodPressure > 120 || bloodPressure < 60)) {
+      return Optional.of("Diastolic blood pressure is in critical range: " + bloodPressure);
+    }
 
     return Optional.empty();
   }
-
 }

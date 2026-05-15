@@ -2,7 +2,6 @@ package com.involuntaryminimalism.alerts;
 
 import com.involuntaryminimalism.alerts.strategies.BloodPressureCriticalStrategy;
 import com.involuntaryminimalism.alerts.strategies.BloodPressureTrendStrategy;
-import com.involuntaryminimalism.alerts.types.BloodPressureCriticalAlert;
 import com.involuntaryminimalism.alerts.types.BloodPressureCriticalAlertFactory;
 import com.involuntaryminimalism.alerts.types.BloodPressureTrendAlertFactory;
 import com.involuntaryminimalism.data_management.DataStorage;
@@ -16,8 +15,10 @@ import java.util.Optional;
  * {@link AlertManager} instance that distributes the triggered alerts, and further process them.
  */
 public class AlertGenerator {
-  private final BloodPressureCriticalStrategy stratBloodPressureCritical = new BloodPressureCriticalStrategy();
-  private final BloodPressureTrendStrategy stratBloodPressureTrend = new BloodPressureTrendStrategy();
+  private final BloodPressureCriticalStrategy stratBloodPressureCritical =
+      new BloodPressureCriticalStrategy();
+  private final BloodPressureTrendStrategy stratBloodPressureTrend =
+      new BloodPressureTrendStrategy();
 
   /**
    * Evaluates the specified patient's data to determine if any alert conditions are met. If a
@@ -28,7 +29,9 @@ public class AlertGenerator {
    */
   public void evaluateData(Patient patient) {
     // get all records -> minmax of long as time windows
-    var allRecords = DataStorage.getInstance().getRecords(patient.getPatientId(), Long.MIN_VALUE, Long.MAX_VALUE);
+    var allRecords =
+        DataStorage.getInstance()
+            .getRecords(patient.getPatientId(), Long.MIN_VALUE, Long.MAX_VALUE);
     // TODO: implement sliding window here so instead of all record, a timestamp is kept
     //       for all patients marking how far their records had been processed, and then
     //       continue one record at a time.
