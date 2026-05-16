@@ -2,6 +2,7 @@ package com.involuntaryminimalism.alerts;
 
 import com.involuntaryminimalism.alerts.strategies.BloodPressureCriticalStrategy;
 import com.involuntaryminimalism.alerts.strategies.BloodPressureTrendStrategy;
+import com.involuntaryminimalism.alerts.strategies.HyHyStrategy;
 import com.involuntaryminimalism.alerts.types.BloodPressureCriticalAlertFactory;
 import com.involuntaryminimalism.alerts.types.BloodPressureTrendAlertFactory;
 import com.involuntaryminimalism.data_management.DataStorage;
@@ -14,6 +15,7 @@ import com.involuntaryminimalism.alerts.strategies.BloodOxygenDropStrategy;
 import com.involuntaryminimalism.alerts.types.BloodOxygenAlert;
 import com.involuntaryminimalism.alerts.types.BloodOxygenAlertFactory;
 import com.involuntaryminimalism.alerts.types.BloodOxygenDropAlertFactory;
+import com.involuntaryminimalism.alerts.types.HypotensiveHypoxemiaAlertFactory;
 
 /**
  * The {@code AlertGenerator} class is responsible for monitoring patient data and generating alerts
@@ -30,6 +32,8 @@ public class AlertGenerator {
       new BloodOxygenStrategy();
   private final BloodOxygenDropStrategy stratOxygenDropTrend =
       new BloodOxygenDropStrategy();
+  private final HyHyStrategy stratHyHy =
+      new HyHyStrategy();
 
   /**
    * Evaluates the specified patient's data to determine if any alert conditions are met. If a
@@ -82,6 +86,13 @@ public class AlertGenerator {
                     String.valueOf(record.getPatientId()), result.get(), record.getTimestamp()));
       }
       // 5. hypotensive hypoexemia,
+      result = stratHyHy.checkAlert(record);
+      if (result.isPresent()) {
+        triggerAlert(
+            new HypotensiveHypoxemiaAlertFactory()
+                .createAlert(
+                    String.valueOf(record.getPatientId()), result.get(), record.getTimestamp()));
+      }
       // 6. ECG
       // 7. triggered alert
     }

@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.involuntaryminimalism.alerts.types.BloodOxygenAlert;
 
-public class BloodOxygenSaturationAlert {
+public class BloodOxygenSaturationAlertTest {
     @Test
     void OxygenLevel(){
       var instance = DataStorage.getInstance();

@@ -13,23 +13,21 @@ import com.involuntaryminimalism.data_management.Patient;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.involuntaryminimalism.alerts.types.BloodOxygenAlert;
-import com.involuntaryminimalism.alerts.types.BloodOxygenDropAlert;
+import com.involuntaryminimalism.alerts.types.HypotensiveHypoxemiaAlert;
 
-public class BloodOxygenSaturationDropAlert {
+public class HyHyAlertTest {
     @Test
-    void OxygenLevelDrop(){
+    void OxygenLevel(){
       var instance = DataStorage.getInstance();
       var alertManager = new AlertManager();
       var doctor = new TesterDoctor();
       AlertManager.registerListener(doctor);
-      var patient = new Patient(7);
-      instance.addPatientData(7, 104.5, Label.Saturation, 100);
-      instance.addPatientData(7, 102.5, Label.Saturation, 500);
-      instance.addPatientData(7, 98.5, Label.Saturation, 800);
-      instance.addPatientData(7, 95.5, Label.Saturation, 900);
+      var patient = new Patient(11);
+      instance.addPatientData(11, 90.5, Label.Saturation, 100);
+      instance.addPatientData(11, 86.5, Label.SystolicPressure, 100);
       var alertGenerator = new AlertGenerator();
       alertGenerator.evaluateData(patient);
-      assertEquals(BloodOxygenDropAlert.class.getName(), doctor.lastAlert.getClass().getName());
+      assertEquals(HypotensiveHypoxemiaAlert.class.getName(), doctor.lastAlert.getClass().getName());
 
     }
 }

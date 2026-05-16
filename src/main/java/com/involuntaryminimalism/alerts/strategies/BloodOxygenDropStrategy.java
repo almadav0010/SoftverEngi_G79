@@ -33,7 +33,7 @@ public class BloodOxygenDropStrategy implements AlertStrategy {
   }
   private void updateList(PatientRecord record){
     for (PatientRecord pr : previousAlerts) {
-      if(record.getTimestamp()-pr.getTimestamp()>600) // removes everything more than 10 mins ago
+      if(record.getTimestamp()-pr.getTimestamp()>600000) // removes everything more than 10 mins ago
       {
         previousAlerts.remove(pr);
       }
