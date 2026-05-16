@@ -12,9 +12,11 @@ import java.util.Optional;
 
 import com.involuntaryminimalism.alerts.strategies.BloodOxygenStrategy;
 import com.involuntaryminimalism.alerts.strategies.BloodOxygenDropStrategy;
+import com.involuntaryminimalism.alerts.strategies.ECGAlertStrategy;
 import com.involuntaryminimalism.alerts.types.BloodOxygenAlert;
 import com.involuntaryminimalism.alerts.types.BloodOxygenAlertFactory;
 import com.involuntaryminimalism.alerts.types.BloodOxygenDropAlertFactory;
+import com.involuntaryminimalism.alerts.types.ECGAlertFactory;
 import com.involuntaryminimalism.alerts.types.HypotensiveHypoxemiaAlertFactory;
 
 /**
@@ -34,6 +36,8 @@ public class AlertGenerator {
       new BloodOxygenDropStrategy();
   private final HyHyStrategy stratHyHy =
       new HyHyStrategy();
+  private final ECGAlertStrategy stratECG =
+      new ECGAlertStrategy();
 
   /**
    * Evaluates the specified patient's data to determine if any alert conditions are met. If a
@@ -94,6 +98,13 @@ public class AlertGenerator {
                     String.valueOf(record.getPatientId()), result.get(), record.getTimestamp()));
       }
       // 6. ECG
+      result = stratECG.checkAlert(record);
+      if (result.isPresent()) {
+        triggerAlert(
+            new ECGAlertFactory()
+                .createAlert(
+                    String.valueOf(record.getPatientId()), result.get(), record.getTimestamp()));
+      }
       // 7. triggered alert
     }
   }
