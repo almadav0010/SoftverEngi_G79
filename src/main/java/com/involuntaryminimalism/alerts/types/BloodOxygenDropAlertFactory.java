@@ -2,9 +2,9 @@ package com.involuntaryminimalism.alerts.types;
 
 import com.involuntaryminimalism.alerts.Alert;
 
-public class BloodOxygenAlertFactory extends AlertFactory {
+public class BloodOxygenDropAlertFactory extends AlertFactory {
   @Override
   public Alert createAlert(String patientId, String condition, long timestamp) {
-    return new BloodOxygenAlert(patientId,condition,timestamp);
+    return new BloodOxygenDropAlert(patientId,condition,timestamp);
   }
 }

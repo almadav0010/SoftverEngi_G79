@@ -10,8 +10,10 @@ import com.involuntaryminimalism.data_management.Patient;
 import java.util.Optional;
 
 import com.involuntaryminimalism.alerts.strategies.BloodOxygenStrategy;
+import com.involuntaryminimalism.alerts.strategies.BloodOxygenDropStrategy;
 import com.involuntaryminimalism.alerts.types.BloodOxygenAlert;
 import com.involuntaryminimalism.alerts.types.BloodOxygenAlertFactory;
+import com.involuntaryminimalism.alerts.types.BloodOxygenDropAlertFactory;
 
 /**
  * The {@code AlertGenerator} class is responsible for monitoring patient data and generating alerts
@@ -26,6 +28,8 @@ public class AlertGenerator {
       new BloodPressureTrendStrategy();
   private final BloodOxygenStrategy stratOxygenTrend =
       new BloodOxygenStrategy();
+  private final BloodOxygenDropStrategy stratOxygenDropTrend =
+      new BloodOxygenDropStrategy();
 
   /**
    * Evaluates the specified patient's data to determine if any alert conditions are met. If a
@@ -70,6 +74,13 @@ public class AlertGenerator {
                     String.valueOf(record.getPatientId()), result.get(), record.getTimestamp()));
       }
       // 4. rapid drop
+      result = stratOxygenDropTrend.checkAlert(record);
+      if (result.isPresent()) {
+        triggerAlert(
+            new BloodOxygenDropAlertFactory()
+                .createAlert(
+                    String.valueOf(record.getPatientId()), result.get(), record.getTimestamp()));
+      }
       // 5. hypotensive hypoexemia,
       // 6. ECG
       // 7. triggered alert

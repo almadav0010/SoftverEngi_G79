@@ -2,12 +2,12 @@ package com.involuntaryminimalism.alerts.types;
 
 import com.involuntaryminimalism.alerts.Alert;
 
-public class BloodOxygenAlert implements Alert {
+public class BloodOxygenDropAlert implements Alert {
   private final String patientId;
   private final String condition;
   private final long timestamp;
 
-  protected BloodOxygenAlert(String patientId, String condition, long timestamp) {
+  protected BloodOxygenDropAlert(String patientId, String condition, long timestamp) {
     this.patientId = patientId;
     this.condition = condition;
     this.timestamp = timestamp;
