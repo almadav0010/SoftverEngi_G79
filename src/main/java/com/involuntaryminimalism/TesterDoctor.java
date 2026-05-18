@@ -10,6 +10,5 @@ public class TesterDoctor implements AlertListener {
   public void onAlert(Alert alert) {
     // dummy alert handling of doctor
     lastAlert = alert;
-    System.out.println("Alert number " + ++numberOfAlerts + ": " + alert.toString());
   }
 }
