@@ -44,8 +44,9 @@ public class WebsocketDataListener extends WebSocketClient implements DataListen
    *
    * @param serverURI The constructor expects a valid ws:// or wss:// URI to connect to
    */
-  public WebsocketDataListener(URI serverURI) {
+  public WebsocketDataListener(URI serverURI) throws InterruptedException {
     super(serverURI);
+    connectBlocking();
   }
 
   @Override
