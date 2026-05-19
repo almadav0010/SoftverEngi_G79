@@ -32,7 +32,6 @@ public class BloodPressureTrendStrategy implements AlertStrategy {
     if (recordType == Label.SystolicPressure) {
       updateTrendTrackingMaps(consecutiveDropsSys, lastBloodPressureSys, patientId, bloodPressure);
       int consecutiveJumps = consecutiveDropsSys.getOrDefault(patientId, 0);
-      System.out.println("From systolic: " + consecutiveJumps);
       if (Math.abs(consecutiveJumps) >= THRESHOLD_AMOUNT-1) {
         return Optional.of(
             "Systolic blood pressure shows a consistent increase or decrease across at least "
@@ -43,7 +42,6 @@ public class BloodPressureTrendStrategy implements AlertStrategy {
     if (recordType == Label.DiastolicPressure) {
       updateTrendTrackingMaps(consecutiveDropsDia, lastBloodPressureDia, patientId, bloodPressure);
       int consecutiveJumps = consecutiveDropsDia.getOrDefault(patientId, 0);
-      System.out.println("From diastolic: " + consecutiveJumps);
       if (Math.abs(consecutiveJumps) >= THRESHOLD_AMOUNT-1) {
         return Optional.of(
             "Diastolic blood pressure shows a consistent increase or decrease across at least "
