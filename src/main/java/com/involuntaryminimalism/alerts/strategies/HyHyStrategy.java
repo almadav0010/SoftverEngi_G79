@@ -1,15 +1,8 @@
 package com.involuntaryminimalism.alerts.strategies;
 
-import com.involuntaryminimalism.alerts.strategies.AlertStrategy;
-import com.involuntaryminimalism.data_management.PatientRecord;
-
-import java.util.Comparator;
-import java.util.Optional;
-import java.util.SortedSet;
-import java.util.TreeSet;
-
 import com.involuntaryminimalism.Label;
-import com.involuntaryminimalism.data_management.Patient;
+import com.involuntaryminimalism.data_management.PatientRecord;
+import java.util.Optional;
 
 public class HyHyStrategy implements AlertStrategy {
   private PatientRecord lastRecord = null;

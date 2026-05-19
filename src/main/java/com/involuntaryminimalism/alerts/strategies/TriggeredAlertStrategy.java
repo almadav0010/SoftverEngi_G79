@@ -1,13 +1,8 @@
 package com.involuntaryminimalism.alerts.strategies;
 
-import com.involuntaryminimalism.alerts.strategies.AlertStrategy;
-import com.involuntaryminimalism.data_management.PatientRecord;
-
-import java.util.Optional;
-import java.util.ArrayList;
-
 import com.involuntaryminimalism.Label;
-
+import com.involuntaryminimalism.data_management.PatientRecord;
+import java.util.Optional;
 
 public class TriggeredAlertStrategy implements AlertStrategy {
   @Override

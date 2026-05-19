@@ -1,16 +1,12 @@
 package com.involuntaryminimalism.alerts.strategies;
 
-import com.involuntaryminimalism.alerts.strategies.AlertStrategy;
-import com.involuntaryminimalism.data_management.PatientRecord;
-
-import java.util.Optional;
-import java.util.ArrayList;
-
 import com.involuntaryminimalism.Label;
-
+import com.involuntaryminimalism.data_management.PatientRecord;
+import java.util.ArrayList;
+import java.util.Optional;
 
 public class ECGAlertStrategy implements AlertStrategy {
-  private ArrayList<PatientRecord> overTime = new ArrayList<>();
+  private final ArrayList<PatientRecord> overTime = new ArrayList<>();
   @Override
   public Optional<String> checkAlert(PatientRecord record) {
     Label recordType = record.getRecordType();

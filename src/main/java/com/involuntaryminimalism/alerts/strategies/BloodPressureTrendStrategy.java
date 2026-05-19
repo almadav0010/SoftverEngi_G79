@@ -32,7 +32,7 @@ public class BloodPressureTrendStrategy implements AlertStrategy {
     if (recordType == Label.SystolicPressure) {
       updateTrendTrackingMaps(consecutiveDropsSys, lastBloodPressureSys, patientId, bloodPressure);
       int consecutiveJumps = consecutiveDropsSys.getOrDefault(patientId, 0);
-      if (Math.abs(consecutiveJumps) >= THRESHOLD_AMOUNT-1) {
+      if (Math.abs(consecutiveJumps) >= THRESHOLD_AMOUNT - 1) {
         return Optional.of(
             "Systolic blood pressure shows a consistent increase or decrease across at least "
                 + "three consecutive readings where each reading changes by more than 10 mmHg from "
@@ -42,7 +42,7 @@ public class BloodPressureTrendStrategy implements AlertStrategy {
     if (recordType == Label.DiastolicPressure) {
       updateTrendTrackingMaps(consecutiveDropsDia, lastBloodPressureDia, patientId, bloodPressure);
       int consecutiveJumps = consecutiveDropsDia.getOrDefault(patientId, 0);
-      if (Math.abs(consecutiveJumps) >= THRESHOLD_AMOUNT-1) {
+      if (Math.abs(consecutiveJumps) >= THRESHOLD_AMOUNT - 1) {
         return Optional.of(
             "Diastolic blood pressure shows a consistent increase or decrease across at least "
                 + "three consecutive readings where each reading changes by more than 10 mmHg from "
@@ -54,9 +54,9 @@ public class BloodPressureTrendStrategy implements AlertStrategy {
   }
 
   /**
-   * To avoid code duplication, this is a helper function for
-   * lastBloodPressureXXX and consecutiveDropsXXX to update them
-   * when processing a new measurement.**/
+   * To avoid code duplication, this is a helper function for lastBloodPressureXXX and
+   * consecutiveDropsXXX to update them when processing a new measurement.*
+   */
   private void updateTrendTrackingMaps(
       Map<Integer, Integer> consecutiveCounterMap,
       Map<Integer, Double> lastMeasurementMap,

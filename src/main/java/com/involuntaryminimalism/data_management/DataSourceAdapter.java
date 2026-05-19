@@ -13,10 +13,7 @@ public class DataSourceAdapter {
     this.dataListener = dataListener;
   }
 
-  /**
-   * Reads from specified data listener and adapts it to be placed in the data storage.
-   *
-   */
+  /** Reads from specified data listener and adapts it to be placed in the data storage. */
   public void putDataToStorage() {
     try {
       List<String[]> semiRawData = dataListener.readData();
@@ -45,7 +42,8 @@ public class DataSourceAdapter {
         DataStorage.getInstance().addPatientData(patientID, data, label, timestamp);
       }
     } catch (IOException e) {
-      System.out.println("Error with reading data from data listener. I will not put anything into data storage!");
+      System.out.println(
+          "Error with reading data from data listener. I will not put anything into data storage!");
     }
   }
 }

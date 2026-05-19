@@ -2,7 +2,6 @@ package com.involuntaryminimalism.data_management.inputs;
 
 import java.io.IOException;
 import java.net.URI;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import org.java_websocket.client.WebSocketClient;
@@ -91,10 +90,7 @@ public class WebsocketDataListener extends WebSocketClient implements DataListen
   // ///////////////// //
   private boolean isCorrupt(String[] parts) {
     // pieces of information in message
-    if (parts.length != 4) {
-      return true;
-    }
-    return false;
+    return parts.length != 4;
   }
   private void stripParts(String[] parts) {
     for (int i = 0; i < parts.length; i++) {

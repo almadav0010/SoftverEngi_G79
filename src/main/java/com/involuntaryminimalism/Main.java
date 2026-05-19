@@ -2,7 +2,6 @@ package com.involuntaryminimalism;
 
 import com.involuntaryminimalism.cardio_generator.HealthDataSimulator;
 import com.involuntaryminimalism.data_management.DataStorage;
-
 import java.io.IOException;
 
 public class Main {
