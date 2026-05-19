@@ -4,17 +4,17 @@ import java.io.IOException;
 import java.net.URI;
 import java.util.LinkedList;
 import java.util.List;
-
-import com.Label;
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.handshake.ServerHandshake;
 
 /**
- * Handles reading data from a websocket generated as output by this software. The naming is very
- * unfortunate, but the project manual dictated the existence of a "WebsocketClient" class, and java
- * can differentiate between them via class paths, so we decided on this solution.
+ * While the project manual asked for a WebSocketClient named class in the linked examples
+ * we have found that it is conventional to embed the client into the class that relies on
+ * the websocket itself. Hence, we are keeping the filename WebsocketDataListener that is
+ * actually the WebSocketClient.
+ * (e.g. https://github.com/TooTallNate/Java-WebSocket/blob/master/src/main/example/ChatClient.java#L124)
  */
-public class WebsocketClient extends WebSocketClient implements DataListener {
+public class WebsocketDataListener extends WebSocketClient implements DataListener {
 
   /* stores incoming messages in the universally accepted format, until
   they are requested via the readData() method call, upon which the dataQueue is
@@ -44,7 +44,7 @@ public class WebsocketClient extends WebSocketClient implements DataListener {
    *
    * @param serverURI The constructor expects a valid ws:// or wss:// URI to connect to
    */
-  public WebsocketClient(URI serverURI) {
+  public WebsocketDataListener(URI serverURI) {
     super(serverURI);
   }
 
