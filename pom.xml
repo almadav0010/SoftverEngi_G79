@@ -33,6 +33,22 @@
             <version>5.12.1</version>
             <scope>test</scope>
         </dependency>
+        <!--
+        Source - https://stackoverflow.com/a/9919375
+        Posted by Prasanna, modified by community. See post 'Timeline' for change history
+        Retrieved 2026-05-19, License - CC BY-SA 4.0
+        -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>2.0.17</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>2.0.17</version>
+        </dependency>
+
 
     </dependencies>
     <build>
@@ -68,7 +84,7 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.7</version>
+                <version>0.8.14</version>
                 <executions>
                     <execution>
                         <goals>
