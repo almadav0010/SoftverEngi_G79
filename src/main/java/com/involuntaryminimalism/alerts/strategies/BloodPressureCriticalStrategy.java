@@ -33,9 +33,6 @@ public class BloodPressureCriticalStrategy implements AlertStrategy {
     // at this point we know it is blood pressure
     double bloodPressure = record.getMeasurementValue();
 
-    int patientId = record.getPatientId();
-    int THRESHOLD_AMOUNT = 3;
-
     // CRITICAL THRESHOLD ALERT
     if (recordType == Label.SystolicPressure && (bloodPressure > 180 || bloodPressure < 90)) {
       return Optional.of("Systolic blood pressure is in critical range: " + bloodPressure);

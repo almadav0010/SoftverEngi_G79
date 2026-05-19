@@ -1,26 +1,22 @@
 package com.involuntaryminimalism.alerts;
 
+import com.involuntaryminimalism.alerts.strategies.BloodOxygenDropStrategy;
+import com.involuntaryminimalism.alerts.strategies.BloodOxygenStrategy;
 import com.involuntaryminimalism.alerts.strategies.BloodPressureCriticalStrategy;
 import com.involuntaryminimalism.alerts.strategies.BloodPressureTrendStrategy;
-import com.involuntaryminimalism.alerts.strategies.HyHyStrategy;
-import com.involuntaryminimalism.alerts.types.BloodPressureCriticalAlertFactory;
-import com.involuntaryminimalism.alerts.types.BloodPressureTrendAlertFactory;
-import com.involuntaryminimalism.data_management.DataStorage;
-import com.involuntaryminimalism.data_management.Patient;
-
-import java.util.Optional;
-
-import com.involuntaryminimalism.alerts.strategies.BloodOxygenStrategy;
-import com.involuntaryminimalism.alerts.strategies.BloodOxygenDropStrategy;
 import com.involuntaryminimalism.alerts.strategies.ECGAlertStrategy;
+import com.involuntaryminimalism.alerts.strategies.HyHyStrategy;
 import com.involuntaryminimalism.alerts.strategies.TriggeredAlertStrategy;
-import com.involuntaryminimalism.alerts.types.BloodOxygenAlert;
 import com.involuntaryminimalism.alerts.types.BloodOxygenAlertFactory;
 import com.involuntaryminimalism.alerts.types.BloodOxygenDropAlertFactory;
+import com.involuntaryminimalism.alerts.types.BloodPressureCriticalAlertFactory;
+import com.involuntaryminimalism.alerts.types.BloodPressureTrendAlertFactory;
 import com.involuntaryminimalism.alerts.types.ECGAlertFactory;
 import com.involuntaryminimalism.alerts.types.HypotensiveHypoxemiaAlertFactory;
-import com.involuntaryminimalism.alerts.types.TriggeredAlert;
 import com.involuntaryminimalism.alerts.types.TriggeredAlertFactory;
+import com.involuntaryminimalism.data_management.DataStorage;
+import com.involuntaryminimalism.data_management.Patient;
+import java.util.Optional;
 
 /**
  * The {@code AlertGenerator} class is responsible for monitoring patient data and generating alerts

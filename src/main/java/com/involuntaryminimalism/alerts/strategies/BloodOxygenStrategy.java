@@ -1,11 +1,8 @@
 package com.involuntaryminimalism.alerts.strategies;
 
-import com.involuntaryminimalism.alerts.strategies.AlertStrategy;
-import com.involuntaryminimalism.data_management.PatientRecord;
-
-import java.util.Optional;
-
 import com.involuntaryminimalism.Label;
+import com.involuntaryminimalism.data_management.PatientRecord;
+import java.util.Optional;
 
 public class BloodOxygenStrategy implements AlertStrategy {
   @Override
@@ -16,8 +13,9 @@ public class BloodOxygenStrategy implements AlertStrategy {
     if (recordType != Label.Saturation) {
       return Optional.empty();
     }
-    if(record.getMeasurementValue()<92){ // stored in percentage not fraction
-      return Optional.of("Blood oxygen sturation below 92%! Measured value: "+record.getMeasurementValue());
+    if (record.getMeasurementValue() < 92) { // stored in percentage not fraction
+      return Optional.of(
+          "Blood oxygen sturation below 92%! Measured value: " + record.getMeasurementValue());
     }
     return Optional.empty();
   }

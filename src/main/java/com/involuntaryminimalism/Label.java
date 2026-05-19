@@ -8,5 +8,5 @@ public enum Label {
   Cholesterol,
   Saturation,
   ECG,
-  Alert,    // specifically for triggered alert (alert button pressed by a patient)
+  Alert, // specifically for triggered alert (alert button pressed by a patient)
 }
