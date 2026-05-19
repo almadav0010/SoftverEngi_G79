@@ -2,6 +2,7 @@ package com.involuntaryminimalism.data_management.inputs;
 
 import java.io.IOException;
 import java.net.URI;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import org.java_websocket.client.WebSocketClient;
@@ -46,7 +47,6 @@ public class WebsocketDataListener extends WebSocketClient implements DataListen
    */
   public WebsocketDataListener(URI serverURI) throws InterruptedException {
     super(serverURI);
-    connectBlocking();
   }
 
   @Override
@@ -58,16 +58,13 @@ public class WebsocketDataListener extends WebSocketClient implements DataListen
   @Override
   public void onMessage(String message) {
     // String message = String.format("%d,%d,%s,%s", patientId, timestamp, label, data);
-    String[] parts = message.strip().split(", ");
+    String[] parts = message.strip().split(",");
 
     // preprocess parts
     stripParts(parts);
     if (isCorrupt(parts)) {
       return;
     }
-
-    // the separator is ":"
-    String innerSeparator = ":";
 
     // convert line to standard form, for adapters
     var formattedMessage = new String[] {
@@ -81,7 +78,7 @@ public class WebsocketDataListener extends WebSocketClient implements DataListen
 
   @Override
   public void onClose(int i, String s, boolean b) {
-    System.out.println("closed with exit code " + i + " additional info: " + s);
+    System.out.println("WebsocketDataListener closed with exit code " + i + " additional info: " + s);
   }
 
   @Override
@@ -95,10 +92,6 @@ public class WebsocketDataListener extends WebSocketClient implements DataListen
   private boolean isCorrupt(String[] parts) {
     // pieces of information in message
     if (parts.length != 4) {
-      return true;
-    }
-    // patient id is numeric
-    if (!parts[0].matches("[a-zA-Z]")) {
       return true;
     }
     return false;

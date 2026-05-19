@@ -36,12 +36,11 @@ public class DataSourceAdapter {
         patientID = Integer.parseInt(entry[0]);
         timestamp = Long.parseLong(entry[1]);
         label = Label.valueOf(entry[2]);
-        data = RawParser.numeric(entry[3]); // handles special formats like percentages
-
-        // alerts logs are not records therefore skipped
         if (label == Label.Alert) {
+          // alerts logs are not records therefore skipped
           continue;
         }
+        data = RawParser.numeric(entry[3]); // handles special formats like percentages
         // gives parsed data to the storage in a way it understands (doing the adapter thing)
         DataStorage.getInstance().addPatientData(patientID, data, label, timestamp);
       }
