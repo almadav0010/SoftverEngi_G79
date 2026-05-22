@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net">
   <diagram name="Page-1" id="empMyg9jxCM_DCe_GFSe">
-    <mxGraphModel dx="1723" dy="1627" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2298" dy="1922" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -183,7 +183,7 @@
         <mxCell id="cKaQ8fH5R9WzQeRs7cfV-30" parent="cKaQ8fH5R9WzQeRs7cfV-26" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" value="" vertex="1">
           <mxGeometry height="20" width="160" y="120" as="geometry" />
         </mxCell>
-        <mxCell id="cKaQ8fH5R9WzQeRs7cfV-31" parent="cKaQ8fH5R9WzQeRs7cfV-26" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" value="- SendAlert() : patientID&#xa;- decideIfDataIsBad&#xa;(PatientRecord) : bool" vertex="1">
+        <mxCell id="cKaQ8fH5R9WzQeRs7cfV-31" parent="cKaQ8fH5R9WzQeRs7cfV-26" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" value="+ triggerAlert() :&#xa;- evaluateData&#xa;(PatientRecord) :" vertex="1">
           <mxGeometry height="60" width="160" y="140" as="geometry" />
         </mxCell>
         <mxCell id="cKaQ8fH5R9WzQeRs7cfV-32" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Alerts" vertex="1">
