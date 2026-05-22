@@ -39,5 +39,4 @@ public class BloodPressureTrendAlertTests {
     alertGenerator.evaluateData(patientZero);
     assertEquals(BloodPressureTrendAlert.class.getName(), doctor.lastAlert.getClass().getName());
   }
-
 }

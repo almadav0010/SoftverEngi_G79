@@ -12,20 +12,19 @@ import com.involuntaryminimalism.data_management.Patient;
 import org.junit.jupiter.api.Test;
 
 public class BloodOxygenSaturationDropAlertTest {
-    @Test
-    void OxygenLevelDrop(){
-      var instance = DataStorage.getInstance();
-      var alertManager = new AlertManager();
-      var doctor = new TesterDoctor();
-      AlertManager.registerListener(doctor);
-      var patient = new Patient(7);
-      instance.addPatientData(7, 104.5, Label.Saturation, 100000);
-      instance.addPatientData(7, 102.5, Label.Saturation, 500000);
-      instance.addPatientData(7, 98.5, Label.Saturation, 800000);
-      instance.addPatientData(7, 95.5, Label.Saturation, 900000);
-      var alertGenerator = new AlertGenerator();
-      alertGenerator.evaluateData(patient);
-      assertEquals(BloodOxygenDropAlert.class.getName(), doctor.lastAlert.getClass().getName());
-
-    }
+  @Test
+  void OxygenLevelDrop() {
+    var instance = DataStorage.getInstance();
+    var alertManager = new AlertManager();
+    var doctor = new TesterDoctor();
+    AlertManager.registerListener(doctor);
+    var patient = new Patient(7);
+    instance.addPatientData(7, 104.5, Label.Saturation, 100000);
+    instance.addPatientData(7, 102.5, Label.Saturation, 500000);
+    instance.addPatientData(7, 98.5, Label.Saturation, 800000);
+    instance.addPatientData(7, 95.5, Label.Saturation, 900000);
+    var alertGenerator = new AlertGenerator();
+    alertGenerator.evaluateData(patient);
+    assertEquals(BloodOxygenDropAlert.class.getName(), doctor.lastAlert.getClass().getName());
+  }
 }

@@ -38,6 +38,7 @@ public class WebSocketDataListenerTests {
     // even after connection is lost previously recorded entries are kept
     System.out.println("Lost connection tester" + websocketclient.readData().toString());
   }
+
   @Test
   public void dataIntegrationTest() throws InterruptedException {
     int port = 8890;
@@ -47,12 +48,12 @@ public class WebSocketDataListenerTests {
     var stdout = new WebSocketOutputStrategy(port);
     var websocketclient = new WebsocketDataListener(URI.create("ws://localhost:" + port));
     websocketclient.connectBlocking();
-    stdout.output(
-        magicPatientID, magicPatientID, Label.DiastolicPressure.name(), "90");
+    stdout.output(magicPatientID, magicPatientID, Label.DiastolicPressure.name(), "90");
 
     var adapter = new DataSourceAdapter(websocketclient);
     adapter.putDataToStorage();
-    var records = DataStorage.getInstance().getRecords(magicPatientID, Long.MIN_VALUE, Long.MAX_VALUE);
+    var records =
+        DataStorage.getInstance().getRecords(magicPatientID, Long.MIN_VALUE, Long.MAX_VALUE);
     // match test record with what is stored in the data storage
     assertEquals(records.get(0).getRecordType(), Label.DiastolicPressure);
     websocketclient.close();

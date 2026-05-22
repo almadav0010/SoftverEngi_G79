@@ -1,11 +1,11 @@
 package alerts.decorators;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import com.involuntaryminimalism.alerts.Alert;
 import com.involuntaryminimalism.alerts.decorators.PriorityAlertDecorator;
 import com.involuntaryminimalism.alerts.types.TriggeredAlertFactory;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PriorityAlertDecoratorTest {
   @Test

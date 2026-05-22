@@ -1,17 +1,17 @@
 package alerts;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import com.involuntaryminimalism.alerts.Alert;
 import com.involuntaryminimalism.alerts.types.*;
-import com.involuntaryminimalism.alerts.types.BloodOxygenDropAlertFactory;
 import com.involuntaryminimalism.alerts.types.BloodOxygenAlertFactory;
+import com.involuntaryminimalism.alerts.types.BloodOxygenDropAlertFactory;
 import com.involuntaryminimalism.alerts.types.BloodPressureCriticalAlertFactory;
 import com.involuntaryminimalism.alerts.types.BloodPressureTrendAlertFactory;
 import com.involuntaryminimalism.alerts.types.ECGAlertFactory;
-import org.junit.jupiter.api.Test;
 import com.involuntaryminimalism.alerts.types.HypotensiveHypoxemiaAlertFactory;
 import com.involuntaryminimalism.alerts.types.TriggeredAlertFactory;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 public class FactoryTest {
 

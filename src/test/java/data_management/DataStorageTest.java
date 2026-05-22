@@ -10,22 +10,25 @@ import org.junit.jupiter.api.Test;
 
 class DataStorageTest {
 
-    @Test
-    void testAddAndGetRecords() {
-        DataStorage storage = DataStorage.getInstance(); // removed reader from the overload, the constructor doesnt need anything
+  @Test
+  void testAddAndGetRecords() {
+    DataStorage storage =
+        DataStorage
+            .getInstance(); // removed reader from the overload, the constructor doesnt need
+                            // anything
     storage.addPatientData(1, 100.0, Label.WhiteBloodCells, 1714376789050L);
-        storage.addPatientData(1, 200.0, Label.WhiteBloodCells, 1714376789051L);
+    storage.addPatientData(1, 200.0, Label.WhiteBloodCells, 1714376789051L);
 
-        List<PatientRecord> records = storage.getRecords(1, 1714376789050L, 1714376789051L);
-        assertEquals(2, records.size()); // Check if two records are retrieved
-        assertEquals(100.0, records.get(0).getMeasurementValue()); // Validate first record
-    }
+    List<PatientRecord> records = storage.getRecords(1, 1714376789050L, 1714376789051L);
+    assertEquals(2, records.size()); // Check if two records are retrieved
+    assertEquals(100.0, records.get(0).getMeasurementValue()); // Validate first record
+  }
 
-    @Test
-    void testSingleton() {
-      var instance01 = DataStorage.getInstance();
-      var instance02 = DataStorage.getInstance();
-      boolean isSameObject = (instance01 == instance02);
-      assertTrue(isSameObject);
-    }
+  @Test
+  void testSingleton() {
+    var instance01 = DataStorage.getInstance();
+    var instance02 = DataStorage.getInstance();
+    boolean isSameObject = (instance01 == instance02);
+    assertTrue(isSameObject);
+  }
 }
