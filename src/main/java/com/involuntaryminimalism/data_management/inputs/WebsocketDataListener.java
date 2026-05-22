@@ -8,11 +8,11 @@ import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.handshake.ServerHandshake;
 
 /**
- * While the project manual asked for a WebSocketClient named class in the linked examples
- * we have found that it is conventional to embed the client into the class that relies on
- * the websocket itself. Hence, we are keeping the filename WebsocketDataListener that is
- * actually the WebSocketClient.
- * (e.g. https://github.com/TooTallNate/Java-WebSocket/blob/master/src/main/example/ChatClient.java#L124)
+ * While the project manual asked for a WebSocketClient named class in the linked examples we have
+ * found that it is conventional to embed the client into the class that relies on the websocket
+ * itself. Hence, we are keeping the filename WebsocketDataListener that is actually the
+ * WebSocketClient. (e.g.
+ * https://github.com/TooTallNate/Java-WebSocket/blob/master/src/main/example/ChatClient.java#L124)
  */
 public class WebsocketDataListener extends WebSocketClient implements DataListener {
 
@@ -24,7 +24,8 @@ public class WebsocketDataListener extends WebSocketClient implements DataListen
 
   /**
    * Reads a chunk of data (accumulated since previous call of this method, and outputs them in the
-   * commonly agreed format understood by {@link com.involuntaryminimalism.data_management.DataSourceAdapter} class.
+   * commonly agreed format understood by {@link
+   * com.involuntaryminimalism.data_management.DataSourceAdapter} class.
    *
    * @return A list of patient records represented as String arrays
    * @throws IOException when error in websocket connection
@@ -66,18 +67,20 @@ public class WebsocketDataListener extends WebSocketClient implements DataListen
     }
 
     // convert line to standard form, for adapters
-    var formattedMessage = new String[] {
-        parts[0], // patient ID
-        parts[1], // timestamp
-        parts[2], // label
-        parts[3], // data
-    };
+    var formattedMessage =
+        new String[] {
+          parts[0], // patient ID
+          parts[1], // timestamp
+          parts[2], // label
+          parts[3], // data
+        };
     dataQueue.add(formattedMessage);
   }
 
   @Override
   public void onClose(int i, String s, boolean b) {
-    System.out.println("WebsocketDataListener closed with exit code " + i + " additional info: " + s);
+    System.out.println(
+        "WebsocketDataListener closed with exit code " + i + " additional info: " + s);
   }
 
   @Override
@@ -92,6 +95,7 @@ public class WebsocketDataListener extends WebSocketClient implements DataListen
     // pieces of information in message
     return parts.length != 4;
   }
+
   private void stripParts(String[] parts) {
     for (int i = 0; i < parts.length; i++) {
       parts[i] = parts[i].strip();

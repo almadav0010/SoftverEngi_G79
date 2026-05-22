@@ -1,9 +1,9 @@
 package cardio_generator;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import com.involuntaryminimalism.cardio_generator.HealthDataSimulator;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class HealthDataSimulatorTest {
   @Test

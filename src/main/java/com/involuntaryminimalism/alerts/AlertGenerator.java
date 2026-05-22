@@ -29,16 +29,11 @@ public class AlertGenerator {
       new BloodPressureCriticalStrategy();
   private final BloodPressureTrendStrategy stratBloodPressureTrend =
       new BloodPressureTrendStrategy();
-  private final BloodOxygenStrategy stratOxygenTrend =
-      new BloodOxygenStrategy();
-  private final BloodOxygenDropStrategy stratOxygenDropTrend =
-      new BloodOxygenDropStrategy();
-  private final HyHyStrategy stratHyHy =
-      new HyHyStrategy();
-  private final ECGAlertStrategy stratECG =
-      new ECGAlertStrategy();
-  private final TriggeredAlertStrategy stratAlert =
-      new TriggeredAlertStrategy();
+  private final BloodOxygenStrategy stratOxygenTrend = new BloodOxygenStrategy();
+  private final BloodOxygenDropStrategy stratOxygenDropTrend = new BloodOxygenDropStrategy();
+  private final HyHyStrategy stratHyHy = new HyHyStrategy();
+  private final ECGAlertStrategy stratECG = new ECGAlertStrategy();
+  private final TriggeredAlertStrategy stratAlert = new TriggeredAlertStrategy();
 
   /**
    * Evaluates the specified patient's data to determine if any alert conditions are met. If a

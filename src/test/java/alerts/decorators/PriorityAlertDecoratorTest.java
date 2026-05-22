@@ -15,5 +15,5 @@ public class PriorityAlertDecoratorTest {
     Alert alertPriority = new PriorityAlertDecorator(alertOG, 2);
 
     assertEquals("[PRIORITY: 2]: " + alertOG.getCondition(), alertPriority.getCondition());
-    }
+  }
 }
