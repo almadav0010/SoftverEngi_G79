@@ -22,4 +22,12 @@ class DataStorageTest {
         assertEquals(2, records.size()); // Check if two records are retrieved
         assertEquals(100.0, records.get(0).getMeasurementValue()); // Validate first record
     }
+
+    @Test
+    void testSingleton() {
+      var instance01 = DataStorage.getInstance();
+      var instance02 = DataStorage.getInstance();
+      boolean isSameObject = (instance01 == instance02);
+      assertTrue(isSameObject);
+    }
 }
