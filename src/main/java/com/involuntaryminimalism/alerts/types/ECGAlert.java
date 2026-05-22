@@ -3,19 +3,25 @@ package com.involuntaryminimalism.alerts.types;
 import com.involuntaryminimalism.alerts.Alert;
 
 public class ECGAlert implements Alert {
+  private final String patientId;
+  private final String condition;
+  private final long timestamp;
 
-  @Override
+  protected ECGAlert(String patientId, String condition, long timestamp) {
+    this.patientId = patientId;
+    this.condition = condition;
+    this.timestamp = timestamp;
+  }
+
   public String getPatientId() {
-    return "";
+    return patientId;
   }
 
-  @Override
   public String getCondition() {
-    return "";
+    return condition;
   }
 
-  @Override
   public long getTimestamp() {
-    return 0;
+    return timestamp;
   }
 }

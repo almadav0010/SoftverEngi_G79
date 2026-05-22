@@ -7,18 +7,25 @@ import com.involuntaryminimalism.alerts.Alert;
  * beds.
  */
 public class TriggeredAlert implements Alert {
-  @Override
+  private final String patientId;
+  private final String condition;
+  private final long timestamp;
+
+  protected TriggeredAlert(String patientId, String condition, long timestamp) {
+    this.patientId = patientId;
+    this.condition = condition;
+    this.timestamp = timestamp;
+  }
+
   public String getPatientId() {
-    return "";
+    return patientId;
   }
 
-  @Override
   public String getCondition() {
-    return "";
+    return condition;
   }
 
-  @Override
   public long getTimestamp() {
-    return 0;
+    return timestamp;
   }
 }
