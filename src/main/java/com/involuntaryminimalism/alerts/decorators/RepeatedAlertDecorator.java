@@ -13,7 +13,7 @@ public class RepeatedAlertDecorator extends AlertDecorator {
 
   @Override
   public String getCondition() {
-    String extraMessage = shouldRepeat() ? "Repeat me please! " : " ";
+    String extraMessage = shouldRepeat() ? "Repeat me please! " : "";
     return extraMessage + super.getCondition();
   }
 
