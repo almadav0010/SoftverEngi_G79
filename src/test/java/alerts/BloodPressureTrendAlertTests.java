@@ -1,15 +1,15 @@
 package alerts;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import com.involuntaryminimalism.Label;
 import com.involuntaryminimalism.TesterDoctor;
 import com.involuntaryminimalism.alerts.AlertGenerator;
 import com.involuntaryminimalism.alerts.AlertManager;
-import com.involuntaryminimalism.alerts.types.BloodPressureCriticalAlert;
 import com.involuntaryminimalism.alerts.types.BloodPressureTrendAlert;
 import com.involuntaryminimalism.data_management.DataStorage;
 import com.involuntaryminimalism.data_management.Patient;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
 public class BloodPressureTrendAlertTests {
   @Test

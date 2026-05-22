@@ -1,17 +1,16 @@
 package data_management;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import com.involuntaryminimalism.Label;
 import com.involuntaryminimalism.cardio_generator.outputs.WebSocketOutputStrategy;
 import com.involuntaryminimalism.data_management.DataSourceAdapter;
 import com.involuntaryminimalism.data_management.DataStorage;
 import com.involuntaryminimalism.data_management.inputs.WebsocketDataListener;
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.Test;
-
 import java.io.IOException;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.List;
+import org.junit.jupiter.api.Test;
 
 public class WebSocketDataListenerTests {
   @Test

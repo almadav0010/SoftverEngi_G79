@@ -1,5 +1,7 @@
 package alerts;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import com.involuntaryminimalism.Label;
 import com.involuntaryminimalism.TesterDoctor;
 import com.involuntaryminimalism.alerts.AlertGenerator;
@@ -8,8 +10,6 @@ import com.involuntaryminimalism.alerts.types.BloodPressureCriticalAlert;
 import com.involuntaryminimalism.data_management.DataStorage;
 import com.involuntaryminimalism.data_management.Patient;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BloodPressureCriticalAlertTests {
   @Test

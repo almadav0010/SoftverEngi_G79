@@ -1,19 +1,15 @@
 package alerts;
 
-import org.junit.jupiter.api.Test;
-
-import com.involuntaryminimalism.TesterDoctor;
-import com.involuntaryminimalism.alerts.AlertManager;
-import com.involuntaryminimalism.alerts.AlertGenerator;
-import com.involuntaryminimalism.Label;
-import com.involuntaryminimalism.alerts.types.BloodPressureCriticalAlert;
-import com.involuntaryminimalism.data_management.DataStorage;
-import com.involuntaryminimalism.data_management.Patient;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import com.involuntaryminimalism.alerts.types.BloodOxygenAlert;
+import com.involuntaryminimalism.Label;
+import com.involuntaryminimalism.TesterDoctor;
+import com.involuntaryminimalism.alerts.AlertGenerator;
+import com.involuntaryminimalism.alerts.AlertManager;
 import com.involuntaryminimalism.alerts.types.ECGAlert;
+import com.involuntaryminimalism.data_management.DataStorage;
+import com.involuntaryminimalism.data_management.Patient;
+import org.junit.jupiter.api.Test;
 
 public class ECGAlertTest {
     @Test
